@@ -17,7 +17,7 @@
       <TextField fx:id="username" layoutX="262.0" layoutY="175.0" prefHeight="26.0" prefWidth="185.0" />
       <Label layoutX="182.0" layoutY="180.0" prefHeight="17.0" prefWidth="38.0" text="User:" />
       <Label layoutX="182.0" layoutY="230.0" prefHeight="17.0" prefWidth="73.0" text="Password:" />
-      <RadioButton layoutX="262.0" layoutY="265.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" />
+      <RadioButton fx:id="sPass" layoutX="262.0" layoutY="265.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" />
       <Label layoutX="188.0" layoutY="115.0" text="Music for Everyone">
          <font>
             <Font name="System Font" size="28.0" />

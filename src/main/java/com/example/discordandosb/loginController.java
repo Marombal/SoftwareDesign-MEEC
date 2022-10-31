@@ -37,9 +37,22 @@ public class loginController {
     AnchorPane loginPane;
     @FXML
     ImageView imageLogin;
+    @FXML
+    RadioButton sPass;
 
+
+    private String pass_aux;
     @FXML
     public void showPassword(ActionEvent e){
+        if(sPass.isSelected()){
+            pass_aux = password.getText();
+            password.clear();
+            password.setPromptText(pass_aux);
+        }else {
+            password.setPromptText("");
+            password.setText(pass_aux);
+        }
+
 
     }
 

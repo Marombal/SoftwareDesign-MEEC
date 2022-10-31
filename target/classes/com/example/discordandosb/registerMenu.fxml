@@ -34,12 +34,13 @@
       <Label layoutX="200.0" layoutY="170.0" text="Create a password *" />
       <Label layoutX="200.0" layoutY="220.0" text="Confirm your password *" />
       <Label layoutX="200.0" layoutY="270.0" prefHeight="17.0" prefWidth="84.0" text="User name *" />
-      <TextField layoutX="200.0" layoutY="140.0" prefHeight="25.0" prefWidth="286.0" />
-      <TextField layoutX="200.0" layoutY="90.0" prefHeight="25.0" prefWidth="286.0" />
-      <TextField layoutX="200.0" layoutY="290.0" prefHeight="25.0" prefWidth="286.0" />
+      <TextField fx:id="confirmEmailField" layoutX="200.0" layoutY="140.0" prefHeight="25.0" prefWidth="286.0" />
+      <TextField fx:id="emailField" layoutX="200.0" layoutY="90.0" prefHeight="25.0" prefWidth="286.0" />
+      <TextField fx:id="userField" layoutX="200.0" layoutY="290.0" prefHeight="25.0" prefWidth="286.0" />
       <Label layoutX="200.0" layoutY="326.0" prefHeight="17.0" prefWidth="84.0" text="* required" />
       <Button layoutX="523.0" layoutY="360.0" mnemonicParsing="false" onAction="#returnToLogin" prefHeight="25.0" prefWidth="63.0" text="Return" />
-      <PasswordField layoutX="200.0" layoutY="190.0" prefHeight="26.0" prefWidth="286.0" />
-      <PasswordField layoutX="200.0" layoutY="240.0" prefHeight="26.0" prefWidth="286.0" />
+      <PasswordField fx:id="passwordField" layoutX="200.0" layoutY="190.0" prefHeight="26.0" prefWidth="286.0" />
+      <PasswordField fx:id="confirmPasswordField" layoutX="200.0" layoutY="240.0" prefHeight="26.0" prefWidth="286.0" />
+      <Button layoutX="316.0" layoutY="347.0" mnemonicParsing="false" onAction="#registerButton" text="Register" />
    </children>
 </AnchorPane>
