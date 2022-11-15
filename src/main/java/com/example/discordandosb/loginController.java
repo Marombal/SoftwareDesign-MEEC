@@ -67,6 +67,7 @@ public class loginController {
 
             appMenuController appController = loader.getController();
             appController.display(user);
+            appController.clock();
 
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
             scene = new Scene(root);
