@@ -107,26 +107,27 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b6ffe9" height="200.0" layoutX="211.0" layoutY="119.0" stroke="BLACK" strokeType="INSIDE" width="607.0" />
       <Label fx:id="musicLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="125.0" prefHeight="62.0" prefWidth="607.0" text="Music Name" textAlignment="CENTER">
          <font>
-            <Font size="42.0" />
+            <Font size="24.0" />
          </font>
       </Label>
       <ProgressBar fx:id="progressBar" layoutX="211.0" layoutY="203.0" prefHeight="18.0" prefWidth="607.0" progress="0.0" />
       <Label alignment="CENTER" layoutX="212.0" layoutY="222.0" prefHeight="31.0" prefWidth="50.0" text="Artista" />
       <Label alignment="CENTER" layoutX="262.0" layoutY="222.0" prefHeight="31.0" prefWidth="50.0" text="Album" />
       <Label alignment="CENTER" layoutX="312.0" layoutY="222.0" prefHeight="31.0" prefWidth="76.0" text="Comments" />
-      <Slider fx:id="volumeSlider" layoutX="797.0" layoutY="222.0" orientation="VERTICAL" prefHeight="95.0" prefWidth="14.0" />
-      <Button fx:id="playButton" layoutX="427.0" layoutY="274.0" mnemonicParsing="false" onAction="#play" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
-      <Button fx:id="pauseButton" layoutX="500.0" layoutY="274.0" mnemonicParsing="false" onAction="#pause" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
-      <Button fx:id="resetButton" layoutX="574.0" layoutY="274.0" mnemonicParsing="false" onAction="#reset" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
-      <ImageView fitHeight="51.0" fitWidth="503.0" layoutX="289.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@DISCORDANDOPNG.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="58.0" fitWidth="88.0" layoutX="746.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@DISCORDANDOPNG.png" />
+            <Image url="@icone-noire-noir.png" />
          </image>
       </ImageView>
+      <Slider fx:id="volumeSlider" layoutX="797.0" layoutY="222.0" orientation="VERTICAL" prefHeight="95.0" prefWidth="14.0" />
+      <ImageView fitHeight="74.0" fitWidth="442.0" layoutX="296.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@play_buttons.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="playButton" layoutX="429.0" layoutY="274.0" mnemonicParsing="false" onAction="#play" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
+      <Button fx:id="pauseButton" layoutX="500.0" layoutY="274.0" mnemonicParsing="false" onAction="#pause" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
+      <Button fx:id="resetButton" layoutX="569.0" layoutY="274.0" mnemonicParsing="false" onAction="#reset" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
+      <Button layoutX="73.0" layoutY="78.0" mnemonicParsing="false" onAction="#home" opacity="0.0" prefHeight="32.0" prefWidth="88.0" text="Button" />
    </children>
 </AnchorPane>

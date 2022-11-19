@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -15,12 +16,13 @@ import java.util.Objects;
 import java.lang.*;
 
 import java.sql.*;
-public class registerMenuController {
+public class registerMenuController extends DataBase {
 
     static final String db_url = "jdbc:postgresql://10.227.240.130:5432/pswa0603";
     static final String user   = "pswa0603";
     static final String passwd = "UhukZObc";
-    static final String query  = "SELECT ID, user, password FROM DiscordandoDB.LoginAccounts";
+    static final String query  = "INSERT INTO discordando.login (id, user, password, email, )" +
+            "VALUES (3, 'Miguel2', 'Miguel3', 'm@gmail.com');";
 
     private Parent root;
     private Scene scene;
@@ -82,6 +84,7 @@ public class registerMenuController {
             alert.setContentText("Email field cant be empty");
             alert.showAndWait();
         }
+
     }
 
     public void set_alert_username(int alert_type){
@@ -107,30 +110,9 @@ public class registerMenuController {
         }
     }
 
-    public void database(){
-        // Connect to the DBMS (DataBase Management Server)
-        try(Connection conn = DriverManager.getConnection(db_url, user, passwd);
-            // Execute an SQL statement
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);) {
-            // Analyse the resulting data
-            while (rs.next()) {
-                System.out.print("ID: "          + rs.getInt("ID"));
-                System.out.print(", USER: " + rs.getString("user"));
-                System.out.print(", PASSWORD: "      + rs.getString("password"));
-                System.out.println();
-            }
-        } catch (SQLException e) {
-            System.out.println("ERRO");
-            e.printStackTrace();
-        }
-}
-
-
-
-
 
     public int register_client(String username, String password, String email){
+        DataBase.addLogin(username, password, email);
         send_email(username, email);
         return 1;
     }
@@ -192,7 +174,9 @@ public class registerMenuController {
             return -3;
         }
 
-        // RETURN -2 AINDA NÃO ESTÁ PROGRAMADO
+        if(DataBase.findUsername(username) == 1){
+            return -2;
+        }
 
         for(int i = 0; i<username.length(); i++){
 
@@ -258,7 +242,7 @@ public class registerMenuController {
 
     @FXML
     public void registerButton(ActionEvent e){
-        database();
+
         email = emailField.getText();
         confirmEmail = confirmEmailField.getText();
         password = passwordField.getText();

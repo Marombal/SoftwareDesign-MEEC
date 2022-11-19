@@ -40,8 +40,15 @@ public class loginController {
     @FXML
     RadioButton sPass;
 
-
     private String pass_aux;
+
+    private int checkLogin(String user, String pass){
+        int res = DataBase.findUsername(user);
+        if(res == 0) return -1;
+        return(DataBase.checkPassword(user, pass));
+    }
+
+
     @FXML
     public void showPassword(ActionEvent e){
         if(sPass.isSelected()){
@@ -61,7 +68,9 @@ public class loginController {
         String user = username.getText();
         String pass = password.getText();
 
-        if(Objects.equals(user, "admin") && Objects.equals(pass, "admin") ){
+        int confirmation = checkLogin(user, pass);
+
+        if(confirmation == 1){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("applicationmenu.fxml"));
             root = loader.load();
 
@@ -75,9 +84,16 @@ public class loginController {
             stage.setScene(scene);
             stage.show();
         }else{
-            loginAnswer.setText("Wrong Credentials");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Login fail");
+            if(confirmation == -1){
+                alert.setContentText("Username doesn't exist");
+            }else if(confirmation == 0){
+                alert.setContentText("Wrong Password");
+            }
+            alert.showAndWait();
         }
-
     }
 
     public void exit(ActionEvent e){

@@ -92,11 +92,10 @@ public class appMenuController {
 
         searchCombo.setOpacity(1);
         searchText.setOpacity(1);
+
     }
 
     public void musicMenu(ActionEvent e) throws IOException{
-
-        System.out.println("OLAOLA");
 
         root = FXMLLoader.load(getClass().getResource("musicMenu.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -104,6 +103,8 @@ public class appMenuController {
         stage.setTitle("Music");
         stage.setScene(scene);
         stage.show();
+
+
     }
 
 
