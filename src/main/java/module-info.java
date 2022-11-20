@@ -4,6 +4,7 @@ module com.example.discordandosb {
     requires javafx.media;
     requires java.desktop;
     requires java.sql;
+    requires java.mail;
 
 
     opens com.example.discordandosb to javafx.fxml;

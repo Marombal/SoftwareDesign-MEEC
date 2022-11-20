@@ -44,7 +44,6 @@ public class DataBase {
             e.printStackTrace();
         }
 
-
         return 1;
     }
 
@@ -70,6 +69,7 @@ public class DataBase {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            return -1;
         }
 
         return 0;
@@ -101,6 +101,74 @@ public class DataBase {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static int createPlaylist(String name, String creator){
+        // Connect to the DBMS (DataBase Management Server)
+        int zero = 0;
+        String query  = "INSERT INTO discordando.playlists (name, creator, nsongs, nlikes) " + "VALUES ('"+ name + "', '" + creator + "', " + zero + "," + zero + ")";
+
+        try(Connection conn = DriverManager.getConnection(db_url, db_user, passwd);) {
+
+            Statement stmt = conn.createStatement();
+            int res = stmt.executeUpdate(query);
+
+            if(res == 0) return 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 1;
+    }
+
+    public static String[] findPlaylists(String creator){
+        String query  = "SELECT name FROM discordando.playlists WHERE creator = '" + creator +"'";
+
+        String[] playlist = new String[255];
+
+        try(Connection conn = DriverManager.getConnection(db_url, db_user, passwd);) {
+
+            Statement stmt = conn.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+
+            int i = 0;
+            while (res.next()) {
+                //System.out.println(res.getString("name"));
+                playlist[i] = res.getString("name");
+                i++;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return playlist;
+    }
+
+    public static String[] findMusicsFromPlaylist(String playlistName){
+        String query  = "SELECT name FROM discordando.musics WHERE playlist = '" + playlistName +"'";
+
+        String[] musics = new String[255];
+
+        try(Connection conn = DriverManager.getConnection(db_url, db_user, passwd);) {
+
+            Statement stmt = conn.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+
+            int i = 0;
+            while (res.next()) {
+                //System.out.println(res.getString("name"));
+                musics[i] = res.getString("name");
+                i++;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return musics;
     }
 
 }

@@ -45,6 +45,7 @@ public class loginController {
     private int checkLogin(String user, String pass){
         int res = DataBase.findUsername(user);
         if(res == 0) return -1;
+        if(res == -1) return -2;
         return(DataBase.checkPassword(user, pass));
     }
 
@@ -87,9 +88,13 @@ public class loginController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error");
             alert.setHeaderText("Login fail");
-            if(confirmation == -1){
+            if(confirmation == -2){
+                alert.setContentText("Failed to connect with DataBase Server. Confirm you are using feupVPN");
+            }
+            else if(confirmation == -1){
                 alert.setContentText("Username doesn't exist");
-            }else if(confirmation == 0){
+            }
+            else if(confirmation == 0){
                 alert.setContentText("Wrong Password");
             }
             alert.showAndWait();

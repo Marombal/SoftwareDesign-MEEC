@@ -10,12 +10,17 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.w3c.dom.ls.LSOutput;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.util.Objects;
 
 import java.lang.*;
 
 import java.sql.*;
+import java.util.Properties;
+
 public class registerMenuController extends DataBase {
 
     static final String db_url = "jdbc:postgresql://10.227.240.130:5432/pswa0603";
@@ -44,6 +49,24 @@ public class registerMenuController extends DataBase {
     PasswordField passwordField;
     @FXML
     PasswordField confirmPasswordField;
+
+    public void set_alert_geral_ok(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Register Done");
+        alert.setHeaderText("Your account was successfully register in Discordando DataBase");
+        alert.setContentText("You will receive an confirmation email soon. " +
+                "Your LogIn is ready");
+        alert.showAndWait();
+    }
+
+    public void set_alert_geral_error(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Error");
+        alert.setHeaderText("Something went wrong");
+        alert.setContentText("Something went wrong here :(" +
+                "Try again latter");
+        alert.showAndWait();
+    }
 
     public void set_alert_password(int alert_type){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -111,14 +134,48 @@ public class registerMenuController extends DataBase {
     }
 
 
-    public int register_client(String username, String password, String email){
-        DataBase.addLogin(username, password, email);
-        send_email(username, email);
+    public int register_client(String username, String password, String email) throws Exception {
+        int res;
+        res = DataBase.addLogin(username, password, email);
+        if(res < 0) return 0;
+        res = send_email(username, email);
+        if(res < 0) return 0;
         return 1;
     }
 
-    public int send_email(String username, String email){
-        return 1;
+    public static int send_email(String username, String email) throws Exception{
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth", true);
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.starttls.enable", true);
+        properties.put("mail.transport.protocl", "smtp");
+
+        Session session = Session.getDefaultInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("discordantomusic@gmail.com", "bodqwwnilenlctba");
+            }
+        });
+
+        try{
+            Message message = new MimeMessage(session);
+            message.setSubject("Register confimation mail");
+            message.setContent("Hello "+username+" welcome to our family! \n<h1>Discordando Music</h1>", "text/html");
+
+            Address addressTo = new InternetAddress(email);
+            message.setRecipient(Message.RecipientType.TO, addressTo);
+
+            Transport.send(message);
+
+            System.out.println("Message sent successfully...");
+
+            return 1;
+        }
+        catch(Exception e) {
+            System.out.println("Errore email: "+e.toString());
+            return -1;
+        }
     }
 
     /*
@@ -241,7 +298,7 @@ public class registerMenuController extends DataBase {
     }
 
     @FXML
-    public void registerButton(ActionEvent e){
+    public void registerButton(ActionEvent e) throws Exception {
 
         email = emailField.getText();
         confirmEmail = confirmEmailField.getText();
@@ -251,17 +308,31 @@ public class registerMenuController extends DataBase {
 
         int res;
         res = check_email(email, confirmEmail);
-        if(res < 0)
+        if(res < 0){
             set_alert_email(res);
+            return;
+        }
         res = check_password(password, confirmPassword);
-        if(res < 0)
+        if(res < 0){
             set_alert_password(res);
+            return;
+        }
         res = check_username(username);
-        if(res < 0)
+        if(res < 0){
             set_alert_username(res);
+            return;
+        }
 
         if(res > 0){
-            register_client(username, password, email);
+            res = register_client(username, password, email);
+        }
+
+
+        if(res < 0){
+            set_alert_geral_error();
+        }else{
+            set_alert_geral_ok();
+            returnToLogin(e);
         }
     }
 }
