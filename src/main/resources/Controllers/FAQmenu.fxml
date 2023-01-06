@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.faqController">
+   <children>
+      <ImageView fitHeight="26.0" fitWidth="145.0" layoutX="10.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@DISCORDANDOPNG.png" />
+         </image>
+      </ImageView>
+      <Line endX="-122.5" endY="744.0" layoutX="287.0" layoutY="-144.0" startX="-122.5" startY="130.0" strokeWidth="2.0" />
+      <Label layoutX="187.0" layoutY="19.0" text="FAQ">
+         <font>
+            <Font name="Apple Symbols" size="26.0" />
+         </font></Label>
+      <Label layoutX="185.0" layoutY="61.0" text="1. Q: What is DiscordandoMusic?" />
+      <Label layoutX="193.0" layoutY="78.0" text="  A: Discordando Music is a Music Organizer that will gather all your" />
+      <Label layoutX="185.0" layoutY="120.0" text="2. Q: How can I create a new Playlist?" />
+      <Label layoutX="193.0" layoutY="137.0" text="  A: To create a new Playlist you just need to press &quot;Create Playlist&quot;" />
+      <Label layoutX="183.0" layoutY="309.0" text="5. Q: How can I add a song to DiscordandoMusic" />
+      <Label layoutX="182.0" layoutY="177.0" text="3. Q: How can I play a song?" />
+      <Label layoutX="190.0" layoutY="194.0" text="  A: To play a song you just need to open you &quot;Music Menu&quot; clicking" />
+      <Label layoutX="183.0" layoutY="401.0" text="6. Q: Can I change my profile data?" />
+      <Label layoutX="191.0" layoutY="418.0" text="  A: You just need to press &quot;...&quot; on your Profile Menu." />
+      <Label layoutX="183.0" layoutY="440.0" text="7. Q: Can I suggest an improvement?" />
+      <Label layoutX="191.0" layoutY="457.0" text="  A: To suggest an improvement to the developer team you can just open " />
+      <Label layoutX="183.0" layoutY="511.0" text="8. Q: Can I download song from DiscordandoMusic?" />
+      <Label layoutX="191.0" layoutY="528.0" text="  A: No, DiscordandoMusic does not allow you to Download Musics." />
+      <Label layoutX="198.0" layoutY="95.0" text="songs. Our product is free of charge and ads." />
+      <Label layoutX="198.0" layoutY="154.0" text="on the left side of your AppMenu, give it a name and it's done!" />
+      <Label layoutX="191.0" layoutY="326.0" text="  A: To create add a new song you first need to have &quot;Content Creator&quot;" />
+      <Label layoutX="196.0" layoutY="343.0" text="status (that you can ask for in your Profile Menu pessing &quot;Ask Content" />
+      <Label layoutX="196.0" layoutY="360.0" text="Creator Status&quot;). Then you just need to press &quot;Add Music&quot; in your" />
+      <Label layoutX="196.0" layoutY="377.0" prefHeight="0.0" prefWidth="211.0" text="AppMenu and submit your Music Data." />
+      <Label layoutX="196.0" layoutY="211.0" text="on any music from any playlist." />
+      <Label layoutX="182.0" layoutY="236.0" text="4. Q: How can I add a song to a playlist?" />
+      <Label layoutX="191.0" layoutY="253.0" text="  A: To add a song to a playlist you just need to open a music from any" />
+      <Label layoutX="197.0" layoutY="270.0" text="playlist, press &quot;Add To Playlist&quot; on your MusicMenu and choose the" />
+      <Label layoutX="197.0" layoutY="288.0" text="for where you want to add the music" />
+      <Label layoutX="197.0" layoutY="474.0" text="your Profile Menu and press &quot;Give Suggestion&quot;. A new Window will open" />
+      <Label layoutX="197.0" layoutY="490.0" text="where you can submit your suggestion." />
+      <ImageView fx:id="imaginLogin" fitHeight="117.0" fitWidth="166.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@dblg.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="529.0" layoutY="565.0" mnemonicParsing="false" onAction="#GoBack" text="Return" />
+   </children>
+</AnchorPane>

@@ -1,12 +1,15 @@
 module com.example.discordandosb {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.media;
     requires java.desktop;
     requires java.sql;
     requires java.mail;
+    //requires org.junit.jupiter.api;
 
+    requires javafx.graphics;
 
-    opens com.example.discordandosb to javafx.fxml;
-    exports com.example.discordandosb;
+    opens Controllers to javafx.fxml;
+    exports Controllers;
+    exports database;
+    opens database to javafx.fxml;
 }

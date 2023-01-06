@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.suggestionsController">
+   <children>
+      <ImageView fitHeight="100.0" fitWidth="572.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@DISCORDANDOPNG.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="Suggestion" alignment="TOP_LEFT" layoutX="20.0" layoutY="200.0" prefHeight="149.0" prefWidth="558.0" />
+      <Label layoutX="20.0" layoutY="100.0" text="At DiscordandoMusic we care about your opinion. ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="130.0" text="Therefore, if you have any suggestions that you would">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="160.0" text="like to leave to the developers, write them here">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="490.0" layoutY="361.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="87.0" text="Submit" />
+      <Button layoutX="417.0" layoutY="361.0" mnemonicParsing="false" onAction="#GoBack" text="Go back" />
+   </children>
+</AnchorPane>
