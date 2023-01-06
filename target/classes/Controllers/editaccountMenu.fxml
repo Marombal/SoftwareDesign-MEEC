@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="469.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.editaccountController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff00" height="160.0" layoutX="191.0" layoutY="65.0" stroke="BLACK" strokeType="INSIDE" width="372.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff00" height="160.0" layoutX="190.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="372.0" />
+      <Label fx:id="nome1" layoutX="269.0" layoutY="25.0" prefHeight="26.0" prefWidth="213.0" text="Edit your account">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imaginLogin" fitHeight="120.0" fitWidth="170.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@dblg.png" />
+         </image>
+      </ImageView>
+      <Line endX="-99.0" endY="392.0074462890625" layoutX="269.0" layoutY="76.0" startX="-99.0" startY="-76.0" />
+      <ImageView fitHeight="25.0" fitWidth="167.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@DISCORDANDOPNG.png" />
+         </image>
+      </ImageView>
+      <Line endX="68.5" layoutX="101.0" layoutY="46.0" startX="-100.0" />
+      <Label layoutX="201.0" layoutY="76.0" text="Your new e-mail " />
+      <Label layoutX="202.0" layoutY="137.0" text="Confirm your new e-mail " />
+      <Label layoutX="201.0" layoutY="257.0" text="Your new password " />
+      <Label layoutX="202.0" layoutY="312.0" text="Confirm your new password " />
+      <TextField fx:id="confirmnewEmailField" layoutX="201.0" layoutY="161.0" prefHeight="25.0" prefWidth="286.0" />
+      <TextField fx:id="newemailField" layoutX="201.0" layoutY="100.0" prefHeight="25.0" prefWidth="286.0" />
+      <Button layoutX="513.0" layoutY="425.0" mnemonicParsing="false" onAction="#return_profile" prefHeight="25.0" prefWidth="63.0" text="Return" />
+      <PasswordField fx:id="newpasswordField" layoutX="201.0" layoutY="280.0" prefHeight="26.0" prefWidth="286.0" />
+      <PasswordField fx:id="confirmnewPasswordField" layoutX="201.0" layoutY="337.0" prefHeight="26.0" prefWidth="286.0" />
+      <Button layoutX="201.0" layoutY="193.0" mnemonicParsing="false" onAction="#changemailButton" prefHeight="25.0" prefWidth="107.0" text="Change " />
+      <Button layoutX="202.0" layoutY="372.0" mnemonicParsing="false" onAction="#changepasswordButton" prefHeight="25.0" prefWidth="107.0" text="Change " />
+   </children>
+</AnchorPane>
